@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import NavBar from '../Layout/NavBar'
-import { getProductDetailThunk } from '../redux/actions'
+import { addProductThunk, getProductDetailThunk } from '../redux/actions'
 
 const ShopDetail = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
+
+  const [quantity, setQuantity] = useState(0)
 
   const productDetail = useSelector(state => state.productDetail)
   console.log(productDetail)
@@ -16,9 +18,17 @@ const ShopDetail = () => {
     dispatch(getProductDetailThunk(id))
   }, [dispatch, id])
 
+  const addProduct = () => {
+    const product = {
+      product: id,
+      quantity: quantity
+    }
+    dispatch(addProductThunk((product)));
+  }
+
   return (
     <div className=' px-0 sm:pt-10 sm:px-10 md:pt-10 md:px-20  xl:pt-10 xl:px-44'>
-      <NavBar />
+      
       <div className='pt-40 px-0 lg:flex  '>
         <div className='basis-1/2'> <Carousel /> </div>
         <div className='basis-1/2 mx-20 '>
@@ -27,6 +37,16 @@ const ShopDetail = () => {
                '
             > {productDetail.name}
             </h1>
+          </div>
+          <div>
+            <div className='flex flex-row'>
+              { quantity >= 1 &&
+              <button onClick={() => setQuantity(quantity - 1)}>-</button>
+              }
+              <div>{quantity}</div>
+              <button onClick={() => setQuantity(quantity + 1)} >+</button>
+            </div>
+            <button onClick={addProduct}>Add to cart</button>
           </div>
           <div>
             <h2 className='text-center font-bold font-formal pt-5
