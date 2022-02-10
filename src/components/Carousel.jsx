@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from 'react-icons/ai'
 
@@ -8,7 +8,7 @@ const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const carouselImages = []
-  const carouselImagess = productDetail.images?.map(image => {
+  const getCarouselImages = productDetail.images?.map(image => {
     const url = image.url
     return carouselImages.push(url)
   })
