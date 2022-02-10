@@ -9,7 +9,6 @@ const Login = () => {
   const navigate = useNavigate()
 
   const submit = data => {
-    console.log(data)
     axios
       .post('https://ecommerce-exercise-backend.herokuapp.com/login/', data)
       .then(res => {
