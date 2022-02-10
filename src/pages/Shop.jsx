@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import NavBar from '../Layout/NavBar'
 import { GrFormSearch } from 'react-icons/gr'
-import { filterCategoryThunk, filterProductThunk, getCategoriesThunk, getShopListThunk} from '../redux/actions'
+import { filterCategoryThunk, filterProductThunk, getCategoriesThunk, getShopListThunk } from '../redux/actions'
 
 const Shop = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,6 @@ const Shop = () => {
 
   return (
     <div className='py-10 px-20 lg:px-44 '>
-      <NavBar />
       <div className='flex-column justify-center pt-10'>
         <div className='flex justify-center'>
           {
