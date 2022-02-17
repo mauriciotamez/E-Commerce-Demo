@@ -68,7 +68,7 @@ export const filterProductThunk = product => {
   }
 }
 
-export const getCartThunk  = () => {
+export const getCartThunk = () => {
   return dispatch => {
     axios.get('https://ecommerce-exercise-backend.herokuapp.com/cart/', getConfig())
       .then(res => dispatch(setCart(res.data)))
@@ -81,7 +81,34 @@ export const addProductThunk = product => {
     axios.post('https://ecommerce-exercise-backend.herokuapp.com/products/add_to_cart/', product, getConfig())
       .then(() => {
         dispatch(getCartThunk())
-        alert("Product added to your cart")
+        alert('Product added to your cart')
+      })
+      .catch(error => console.log(error.response))
+  }
+}
+
+export const editProductQuantityThunk = (id, product) => {
+  return dispatch => {
+    axios.put(`https://ecommerce-exercise-backend.herokuapp.com/cart/${id}/change_quantity/`, product, getConfig())
+      .then(() => dispatch(getCartThunk()))
+      .catch(error => console.log(error.response))
+  }
+}
+
+export const deleteProductFromCartThunk = id => {
+  return dispatch => {
+    axios.delete(`https://ecommerce-exercise-backend.herokuapp.com/cart/${id}/remove_item/`, getConfig())
+      .then(() => dispatch(getCartThunk()))
+      .catch(error => console.log(error.response))
+  }
+}
+
+export const buyCartThunk = cart => {
+  return dispatch => {
+    axios.post(`https://ecommerce-exercise-backend.herokuapp.com/cart/buy/`, cart, getConfig())
+      .then(() => {
+        dispatch(getCartThunk())
+        alert("Success")
       })
       .catch(error => console.log(error.response))
   }
