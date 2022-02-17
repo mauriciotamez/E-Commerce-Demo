@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import NavBar from '../Layout/NavBar'
 import { GrFormSearch } from 'react-icons/gr'
 import { filterCategoryThunk, filterProductThunk, getCategoriesThunk, getShopListThunk } from '../redux/actions'
 
@@ -9,7 +8,7 @@ const Shop = () => {
   const dispatch = useDispatch()
 
   const shopList = useSelector(state => state.shopList)
-  console.log(shopList)
+  
 
   const categories = useSelector(state => state.categories)
   const [search, setSearch] = useState('')
@@ -26,7 +25,7 @@ const Shop = () => {
   }
 
   return (
-    <div className='py-10 px-20 lg:px-44 '>
+    <div className='py-10 px-1  '>
       <div className='flex-column justify-center pt-10'>
         <div className='flex justify-center'>
           {
@@ -43,10 +42,10 @@ const Shop = () => {
           <div className='flex justify-center'>
             <form onSubmit={filterProduct} className='pt-20 pl-12 '>
               <input
-                className=' appearance-none border-b-[1px] outline-none	 border-slate-500  bg-[#faf8f0]'
+                className=' appearance-none border-2 outline-none px-2 font-formal	 border-slate-600  bg-[#faf8f0]'
                 type='text' value={search} onChange={e => setSearch(e.target.value)}
               />
-              <button className='pl-5 font-one font-semibold'><GrFormSearch size={25} /></button>
+              <button className='pl-5 relative top-2 font-one font-semibold'><GrFormSearch size={25} /></button>
             </form>
           </div>
         </div>
