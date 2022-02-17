@@ -2,17 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Carousel from '../components/Carousel'
-import NavBar from '../Layout/NavBar'
 import { addProductThunk, getProductDetailThunk } from '../redux/actions'
 
 const ShopDetail = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
-
   const [quantity, setQuantity] = useState(0)
-
   const productDetail = useSelector(state => state.productDetail)
-  
 
   useEffect(() => {
     dispatch(getProductDetailThunk(id))
@@ -52,8 +48,7 @@ const ShopDetail = () => {
             <button className='font-formal py-1 border-2  ' onClick={addProduct}>Add to cart</button>
           </div>
           <div>
-            <h2 className='text-center font-bold font-formal pt-5'
-            >{productDetail.price}$
+            <h2 className='text-center font-bold font-formal pt-5'>{productDetail.price}$
             </h2>
           </div>
           <div>

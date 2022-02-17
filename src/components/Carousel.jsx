@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from 'react-icons/ai'
 
 const Carousel = () => {
-  
   // Define our count variable to further use on our slider buttons, get the productDetail on our store to display on our website, and declare a useState to
   // manage our array of images and the logic involved
   let count

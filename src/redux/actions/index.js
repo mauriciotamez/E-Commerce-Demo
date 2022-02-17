@@ -105,10 +105,10 @@ export const deleteProductFromCartThunk = id => {
 
 export const buyCartThunk = cart => {
   return dispatch => {
-    axios.post(`https://ecommerce-exercise-backend.herokuapp.com/cart/buy/`, cart, getConfig())
+    axios.post('https://ecommerce-exercise-backend.herokuapp.com/cart/buy/', cart, getConfig())
       .then(() => {
         dispatch(getCartThunk())
-        alert("Success")
+        alert('Success')
       })
       .catch(error => console.log(error.response))
   }

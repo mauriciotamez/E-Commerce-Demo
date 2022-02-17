@@ -6,10 +6,7 @@ import { filterCategoryThunk, filterProductThunk, getCategoriesThunk, getShopLis
 
 const Shop = () => {
   const dispatch = useDispatch()
-
   const shopList = useSelector(state => state.shopList)
-  
-
   const categories = useSelector(state => state.categories)
   const [search, setSearch] = useState('')
 

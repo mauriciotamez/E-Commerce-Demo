@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FiLogOut } from 'react-icons/fi'
 import { AiFillInstagram } from 'react-icons/ai'
 import { FaPinterestSquare } from 'react-icons/fa'
-import { GiShoppingCart } from 'react-icons/gi'
-import { GiHamburgerMenu } from 'react-icons/gi'
+import { GiShoppingCart, GiHamburgerMenu } from 'react-icons/gi'
 
 const NavBar = () => {
   const navigate = useNavigate()
@@ -14,8 +13,6 @@ const NavBar = () => {
     localStorage.setItem('token', '')
     navigate('/login')
   }
-
-
 
   return (
 
@@ -40,15 +37,14 @@ const NavBar = () => {
         </button>
       </div>
       <div className='relative left-[18rem] bottom-9 inline-block md:hidden cursor-pointer' onClick={() => setIsHamburgerActive(!isHamburgerActive)}>
-      <GiHamburgerMenu size={25} />
+        <GiHamburgerMenu size={25} />
       </div>
-      { isHamburgerActive &&
-      <div className='flex flex-col md:hidden'>
-        <a className='text-2xl' onClick={() => navigate('/shop')}>Shop</a>
-        <a className='text-2xl' onClick={() => navigate('/cart')}>Cart</a>
-        <a className='text-2xl' onClick={logOut} >Logout</a>
-      </div>
-      }
+      {isHamburgerActive &&
+        <div className='flex flex-col md:hidden'>
+          <a className='text-2xl' onClick={() => navigate('/shop')}>Shop</a>
+          <a className='text-2xl' onClick={() => navigate('/cart')}>Cart</a>
+          <a className='text-2xl' onClick={logOut}>Logout</a>
+        </div>}
     </div>
 
   )
