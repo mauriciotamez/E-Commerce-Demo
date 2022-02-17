@@ -9,21 +9,21 @@ function App () {
   return (
 
     <HashRouter>
-      
+
       <Routes>
-        
+
         <Route path='/login' element={<Login />} />
-        
-        <Route path='/' element={<Navigate to="/shop" />} />
-          
-          <Route element={<ProtectedRoutes />} >
-            <Route element={<MainLayout/>} >
-                <Route path='/shop' element={<Shop />} />
-                <Route path='/shop/:id' element={<ShopDetail />} />
-                <Route path='/cart' element={<Cart />} />
-            </Route>
+
+        <Route path='/' element={<Navigate to='/shop' />} />
+
+        <Route element={<ProtectedRoutes />}>
+          <Route element={<MainLayout />}>
+            <Route path='/shop' element={<Shop />} />
+            <Route path='/shop/:id' element={<ShopDetail />} />
+            <Route path='/cart' element={<Cart />} />
           </Route>
-        
+        </Route>
+
       </Routes>
     </HashRouter>
 
