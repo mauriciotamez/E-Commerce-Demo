@@ -3,12 +3,17 @@ import { useSelector } from 'react-redux'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from 'react-icons/ai'
 
 const Carousel = () => {
+  
+  // Define our count variable to further use on our slider buttons, get the productDetail on our store to display on our website, and declare a useState to
+  // manage our array of images and the logic involved
   let count
   const productDetail = useSelector(state => state.productDetail)
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // Initialize our empty main array (carouselImages) to iterate on our JSX to display the slider images, then use a map to extract the exact url from
+  // the product detail object that we want to push into our slider
   const carouselImages = []
-  const getCarouselImages = productDetail.images?.map(image => {
+  productDetail.images?.map(image => {
     const url = image.url
     return carouselImages.push(url)
   })
