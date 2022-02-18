@@ -47,7 +47,7 @@ const ShopDetail = () => {
           <div className='flex flex-col '>
             <div className='flex flex-row justify-center py-5'>
               {
-              quantity >= 1 &&
+              quantity >= 2 &&
                 <button className='px-2 border-2 ' onClick={() => setQuantity(quantity - 1)}>
                   -
                 </button>
