@@ -7,21 +7,33 @@ import { addProductThunk, getProductDetailThunk } from '../redux/actions'
 const ShopDetail = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
   const productDetail = useSelector(state => state.productDetail)
-
+  const cart = useSelector(state => state.cart)
   useEffect(() => {
     dispatch(getProductDetailThunk(id))
   }, [dispatch, id])
 
-  // the function that triggers in our onClick, that adds that specific product via an action
+
+  // the function that triggers in our onClick, that adds that specific product via an action if item doesn't exist already in our cart 
   const addProduct = () => {
+    
     const product = {
       product: id,
       quantity: quantity
     }
-    dispatch(addProductThunk((product)))
+    
+    isItemAlreadyOnTheCart ? dispatch(addProductThunk((product))) : console.log('Item already in your cart')
+
   }
+ 
+  const isItemAlreadyOnTheCart = cart.every(item => {
+    if(item.product.id === productDetail.id) {
+      return false
+    } else {
+      return true
+    }
+  })
 
   return (
     <div className=' px-0 sm:pt-10  md:pt-10 md:px-20  xl:pt-10 xl:px-44'>
