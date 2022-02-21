@@ -23,7 +23,7 @@ const ShopDetail = () => {
       quantity: quantity
     }
     
-    isItemAlreadyOnTheCart ? dispatch(addProductThunk((product))) : console.log('Item already in your cart')
+    isItemAlreadyOnTheCart ? dispatch(addProductThunk((product))) : alert('Item already in your cart')
 
   }
  
