@@ -26,7 +26,7 @@ const NavBar = () => {
         </button>
       </div>
       <div>
-        <a href='/shop' className=' font-formal font-light cursor-pointer text-4xl relative left-[6rem] bottom-1 md:relative md:bottom-8 md:left-0 md:top-0'>Anise</a>
+        <a onClick={() => navigate('/shop')} className=' font-formal font-light cursor-pointer text-4xl relative left-[6rem] bottom-1 md:relative md:bottom-8 md:left-0 md:top-0'>Anise</a>
       </div>
       <div className='hidden md:block'>
         <button className='relative right-5' onClick={() => navigate('/cart')}>
@@ -41,9 +41,9 @@ const NavBar = () => {
       </div>
       {isHamburgerActive &&
         <div className='flex flex-col md:hidden'>
-          <a className='text-2xl' onClick={() => navigate('/shop')}>Shop</a>
-          <a className='text-2xl' onClick={() => navigate('/cart')}>Cart</a>
-          <a className='text-2xl' onClick={logOut}>Logout</a>
+          <a className='text-2xl cursor-pointer' onClick={() => navigate('/shop')}>Shop</a>
+          <a className='text-2xl cursor-pointer' onClick={() => navigate('/cart')}>Cart</a>
+          <a className='text-2xl cursor-pointer' onClick={logOut}>Logout</a>
         </div>}
     </div>
 
